@@ -1,8 +1,8 @@
 import "./style.css";
 import { setupCounter } from "./counter.js";
-import { setupmodes } from "./modesbtn.js";
+// import { setupmodes } from "./modesbtn.js";
 
-MemeTemplates = [
+const MemeTemplates = [
   { name: "Drake Hotline Bling", img: "https://i.imgflip.com/4/30b1gx.jpg" },
   {
     name: "Gru Plan making",
@@ -43,18 +43,28 @@ MemeTemplates = [
   },
 ];
 
-document.querySelector("#app").innerHTML = `
-  <div>
-    <h1>Welcome To The Worst Meme Generator!</h1>
-    <h2>~in the worldddd!~</h2>
-    <div class="card">
-      <button id="modesbtn" type="button></button>
-    </div>
-    <div class="inputsn'templates">
-      <a herf="${MemeTemplates.img}">
-    </div>
-  </div>
-`;
+// document.querySelector("#app").innerHTML = `
+//   <div>
+//     <h1>Welcome To The Worst Meme Generator!</h1>
+//     <h2>~in the worldddd!~</h2>
+//     <div class="card">
+//       <button id="modesbtn" type="button></button>
+//     </div>
+//     <div class="inputsn'templates">
+//       <a herf="${MemeTemplates.img}">
+//     </div>
+//   </div>
+// `;
+
+function inject(memes) {
+  const Inputsntemplates = document.querySelector(".inputsntemplates");
+  Inputsntemplates.insertAdjacentHTML(
+    "afterbegin",
+    `<img src=${memes.img} alt="">`
+  );
+}
+
+inject(MemeTemplates);
 
 setupCounter(document.querySelector("#counter"));
 setupmodes(document.querySelector("#modesbtn"));
