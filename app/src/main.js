@@ -60,29 +60,30 @@ function inject(memes) {
   const Inputsntemplates = document.querySelector(".inputsntemplates");
   Inputsntemplates.insertAdjacentHTML(
     "afterbegin",
-    `<img src=${memes.img} alt="">
-    <button class="selectbtn">Select</button>`
+    `<div>
+    <img src=${memes.img} alt="">
+    <button class="selectbtn">Select</button>
+    </div>`
   );
 }
 
 MemeTemplates.forEach((MemeTemplates) => inject(MemeTemplates));
 
 function selectTemplate() {
-  const selectbutton = document.querySelectorAll("selectbtn")
+  const selectbutton = document.querySelectorAll("selectbtn");
   const selectbtnArray = Array.from(selectbutton);
-  selectbtnArray.forEach((selectbtn) => 
-    selectbtn.addEventListener("click",function(event){
-      const card = event.target.closest(".templatecards")
+  selectbtnArray.forEach((selectbtn) =>
+    selectbtn.addEventListener("click", function (event) {
       const img = event.target.closest(".img");
-      const selectedimg = img.querySelector("img").innerHTML;
-      const currentimg = document.createElement("img");
-      let oldimg = document.querySelector(".memepreview img")
+      const currentimg = img.document.createElement("img");
+      let oldimg = document.querySelector(".memepreview img");
       if (oldimg) oldimg.remove();
       memepreview.appendchild(currentimg);
-    }))
+    })
+  );
 }
 
-selectTemplate()
+selectTemplate();
 
 setupCounter(document.querySelector("#counter"));
 setupmodes(document.querySelector("#modesbtn"));

@@ -1,16 +1,9 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --white: white;
+  --black: black;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --font-size: medium;
+  --font-family: "fig-tree";
 }
 
 body {
@@ -21,8 +14,8 @@ body {
   min-height: 100vh;
 }
 
-img{
-  width:100%;
+img {
+  width: 100%;
 }
 
 #currentimg {
@@ -34,6 +27,7 @@ img{
   font-size: 100px;
   line-height: 1.1;
   text-align: center;
+  font: var(--font-family);
 }
 
 #Smoltitle {
@@ -41,6 +35,7 @@ img{
   font-size: 10px;
   line-height: 0.65;
   text-align: center;
+  font: var(--font-family);
 }
 
 @media (prefers-color-scheme: light) {
