@@ -60,7 +60,7 @@ function inject(memes) {
   const Inputsntemplates = document.querySelector(".inputsntemplates");
   Inputsntemplates.insertAdjacentHTML(
     "afterbegin",
-    `<div>
+    `<div class="templateselect">
     <img src=${memes.img} alt="">
     <button class="selectbtn">Select</button>
     </div>`

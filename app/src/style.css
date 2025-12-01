@@ -14,8 +14,12 @@ body {
   min-height: 100vh;
 }
 
-img {
+.Titles {
   width: 100%;
+}
+
+img {
+  width: 10%;
 }
 
 #currentimg {
@@ -23,6 +27,7 @@ img {
 }
 
 #Title {
+  width: 100%;
   color: #213547;
   font-size: 100px;
   line-height: 1.1;
@@ -31,11 +36,25 @@ img {
 }
 
 #Smoltitle {
+  width: 100%;
   color: #213547;
   font-size: 10px;
   line-height: 0.65;
   text-align: center;
   font: var(--font-family);
+}
+
+.inputsntemplates {
+  width: 50%;
+  height: 20%;
+  overflow-x: scroll;
+}
+
+.templateselect {
+  width: 10%;
+  height: 10%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 @media (prefers-color-scheme: light) {
