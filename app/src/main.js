@@ -26,8 +26,8 @@ const MemeTemplates = [
   },
   { name: "I'm once again asking", img: "https://i.imgflip.com/4/3oevdk.jpg" },
   {
-    name: "Are you asleep?, Yes now shut up...",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiQbTReA-2SKGSRVodCQZ8prmKi84RqCa9Rw&s",
+    name: "Difficult choices",
+    img: "https://images.wondershare.com/filmora/article-images/best-meme-templates-04.jpg",
   },
   {
     name: "Wow! This is worthless!",
@@ -43,19 +43,6 @@ const MemeTemplates = [
   },
 ];
 
-// document.querySelector("#app").innerHTML = `
-//   <div>
-//     <h1>Welcome To The Worst Meme Generator!</h1>
-//     <h2>~in the worldddd!~</h2>
-//     <div class="card">
-//       <button id="modesbtn" type="button></button>
-//     </div>
-//     <div class="inputsn'templates">
-//       <a herf="${MemeTemplates.img}">
-//     </div>
-//   </div>
-// `;
-
 function inject(memes) {
   const Inputsntemplates = document.querySelector(".inputsntemplates");
   Inputsntemplates.insertAdjacentHTML(
@@ -68,6 +55,35 @@ function inject(memes) {
 }
 
 MemeTemplates.forEach((MemeTemplates) => inject(MemeTemplates));
+
+function injectinputs() {
+  const Inputsntemplates = document.querySelector(".inputsntemplates");
+  Inputsntemplates.insertAdjacentHTML(
+    "beforeend",
+    `<div class="inputs">
+    <button class="addinputs">Add a text</button>
+    <button class="nopeinputs">Remove a text</button>
+    <input
+    type="text"
+    size="20">
+    </div>`
+  );
+}
+
+injectinputs();
+
+function addinginputs() {
+  const amountofinputs = 1;
+  const Addinputs = document.querySelectorAll("addinputs");
+  const Subinputs = document.querySelectorAll("nopeinputs");
+  Addinputs.addEventListener("click", function (event) {
+    if (amountofinputs != 1) {
+      injectinputs();
+    } else {
+      Addinputs;
+    }
+  });
+}
 
 function selectTemplate() {
   const selectbutton = document.querySelectorAll("selectbtn");
