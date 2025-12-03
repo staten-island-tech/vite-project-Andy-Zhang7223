@@ -60,10 +60,11 @@ function injectinputs() {
   const Inputsntemplates = document.querySelector(".inputsntemplates");
   Inputsntemplates.insertAdjacentHTML(
     "beforeend",
-    `<div class="inputs">
+    `<div class="inputsbox">
     <button class="addinputs">Add a text</button>
     <button class="nopeinputs">Remove a text</button>
     <input
+    class="inputs"
     type="text"
     size="20">
     </div>`
@@ -76,20 +77,33 @@ function addinginputs() {
   const amountofinputs = 1;
   const Addinputs = document.querySelectorAll("addinputs");
   const Subinputs = document.querySelectorAll("nopeinputs");
+  const inputs = document.querySelectorAll("inputs");
   Addinputs.addEventListener("click", function (event) {
-    if (amountofinputs != 1) {
+    event.preventDefault();
+    if (amountofinputs != 3) {
       injectinputs();
     } else {
-      Addinputs;
+      Addinputs.setAttribute("disabled", "");
+    }
+  });
+  Subinputs = document.querySelectorAll("click", function (event) {
+    event.preventDefault();
+    if (amountofinputs != 1) {
+      inputs.remove;
+    } else {
+      Subinputs.setAttribute("disabled", "");
     }
   });
 }
+
+addinginputs();
 
 function selectTemplate() {
   const selectbutton = document.querySelectorAll("selectbtn");
   const selectbtnArray = Array.from(selectbutton);
   selectbtnArray.forEach((selectbtn) =>
     selectbtn.addEventListener("click", function (event) {
+      event.preventDefault();
       const img = event.target.closest(".img");
       const currentimg = img.document.createElement("img");
       let oldimg = document.querySelector(".memepreview img");
