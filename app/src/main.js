@@ -44,12 +44,12 @@ const MemeTemplates = [
 ];
 
 function inject(memes) {
-  const Inputsntemplates = document.querySelector(".inputsntemplates");
-  Inputsntemplates.insertAdjacentHTML(
+  const Templates = document.querySelector(".Templates");
+  Templates.insertAdjacentHTML(
     "afterbegin",
     `<div class="templateselect">
     <img src=${memes.img} alt="">
-    <button class="selectbtn">Select</button>
+    <input class="selectbtn" value="Select" type="button" size="100%">
     </div>`
   );
 }
@@ -61,12 +61,13 @@ function injectinputs() {
   Inputsntemplates.insertAdjacentHTML(
     "beforeend",
     `<div class="inputsbox">
-    <button class="addinputs">Add a text</button>
-    <button class="nopeinputs">Remove a text</button>
+    <input class="addinputs" value="Add a text" size="20" type="button">
+    <input class="nopeinputs" value="Remove a text" size="20" type="button">
     <input
     class="inputs"
     type="text"
     size="20">
+    <input class="Yourownimg" value="Add Your Own Meme Template Here!" type="file" accept="image/*">
     </div>`
   );
 }
@@ -78,16 +79,16 @@ function addinginputs() {
   const Addinputs = document.querySelectorAll("addinputs");
   const Subinputs = document.querySelectorAll("nopeinputs");
   const inputs = document.querySelectorAll("inputs");
-  Addinputs.addEventListener("click", function (event) {
-    event.preventDefault();
+  Addinputs.addEventListener("submit", function (e) {
+    e.preventDefault();
     if (amountofinputs != 3) {
       injectinputs();
     } else {
       Addinputs.setAttribute("disabled", "");
     }
   });
-  Subinputs = document.querySelectorAll("click", function (event) {
-    event.preventDefault();
+  Subinputs = document.querySelectorAll("submit", function (e) {
+    e.preventDefault();
     if (amountofinputs != 1) {
       inputs.remove;
     } else {
@@ -102,13 +103,19 @@ function selectTemplate() {
   const selectbutton = document.querySelectorAll("selectbtn");
   const selectbtnArray = Array.from(selectbutton);
   selectbtnArray.forEach((selectbtn) =>
-    selectbtn.addEventListener("click", function (event) {
-      event.preventDefault();
-      const img = event.target.closest(".img");
+    selectbtn.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const img = e.target.closest(".img");
       const currentimg = img.document.createElement("img");
       let oldimg = document.querySelector(".memepreview img");
-      if (oldimg) oldimg.remove();
-      memepreview.appendchild(currentimg);
+      if (oldimg) {
+        oldimg.remove();
+      }
+      memepreview.insertAdjacentHTML(
+        "afterbegin",
+        `<div class="previewimg">
+        <img src=${currentimg} alt="">`
+      );
     })
   );
 }
