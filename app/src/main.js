@@ -1,6 +1,4 @@
 import "./style.css";
-import { setupCounter } from "./counter.js";
-// import { setupmodes } from "./modesbtn.js";
 
 const MemeTemplates = [
   { name: "Drake Hotline Bling", img: "https://i.imgflip.com/4/30b1gx.jpg" },
@@ -48,21 +46,21 @@ function inject(memes) {
   Templates.insertAdjacentHTML(
     "afterbegin",
     `<div class="templateselect">
-    <img src=${memes.img} alt="">
+    <img class="img" src=${memes.img} alt="">
     <input class="selectbtn" value="Select" type="button" size="100%">
     </div>`
   );
 }
 
-MemeTemplates.forEach((MemeTemplates) => inject(MemeTemplates));
+MemeTemplates.forEach((MemeTemplate) => inject(MemeTemplate));
 
 function injectinputs() {
   const Inputsntemplates = document.querySelector(".inputsntemplates");
   Inputsntemplates.insertAdjacentHTML(
     "beforeend",
     `<div class="inputsbox">
-    <input class="addinputs" value="Add a text" size="20" type="button">
-    <input class="nopeinputs" value="Remove a text" size="20" type="button">
+    <input class="addinputs" value="Add a text" size="20" type="submit">
+    <input class="nopeinputs" value="Remove a text" size="20" type="submit">
     <input
     class="inputs"
     type="text"
@@ -75,11 +73,12 @@ function injectinputs() {
 injectinputs();
 
 function addinginputs() {
-  const amountofinputs = 1;
-  const Addinputs = document.querySelectorAll("addinputs");
-  const Subinputs = document.querySelectorAll("nopeinputs");
-  const inputs = document.querySelectorAll("inputs");
-  Addinputs.addEventListener("submit", function (e) {
+  let amountofinputs = 1;
+  const website = document.querySelector(".website");
+  const Addinputs = document.querySelector(".addinputs");
+  const Subinputs = document.querySelector(".nopeinputs");
+  const inputs = document.querySelector(".inputs");
+  website.addEventListener("submit", function (e) {
     e.preventDefault();
     if (amountofinputs != 3) {
       injectinputs();
@@ -87,10 +86,10 @@ function addinginputs() {
       Addinputs.setAttribute("disabled", "");
     }
   });
-  Subinputs = document.querySelectorAll("submit", function (e) {
+  Subinputs.document.querySelectorAll("submit", function (e) {
     e.preventDefault();
     if (amountofinputs != 1) {
-      inputs.remove;
+      inputs.remove();
     } else {
       Subinputs.setAttribute("disabled", "");
     }
@@ -100,7 +99,7 @@ function addinginputs() {
 addinginputs();
 
 function selectTemplate() {
-  const selectbutton = document.querySelectorAll("selectbtn");
+  const selectbutton = document.querySelectorAll(".selectbtn");
   const selectbtnArray = Array.from(selectbutton);
   selectbtnArray.forEach((selectbtn) =>
     selectbtn.addEventListener("submit", function (e) {
@@ -114,7 +113,8 @@ function selectTemplate() {
       memepreview.insertAdjacentHTML(
         "afterbegin",
         `<div class="previewimg">
-        <img src=${currentimg} alt="">`
+        <img src=${currentimg} alt="">
+        </div>`
       );
     })
   );
@@ -122,5 +122,4 @@ function selectTemplate() {
 
 selectTemplate();
 
-setupCounter(document.querySelector("#counter"));
-setupmodes(document.querySelector("#modesbtn"));
+//setupmodes(document.querySelector("#modesbtn"));

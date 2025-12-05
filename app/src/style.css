@@ -72,7 +72,7 @@ img {
 
 .inputsntemplates {
   width: 50%;
-  height: 20%;
+  height: 100%;
   margin: 5px auto;
   padding: 1%;
 }
@@ -81,6 +81,9 @@ img {
   height: 20%;
   margin: 5px auto;
   padding: 1%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: scroll;
 }
 
 .templateselect {
@@ -88,7 +91,6 @@ img {
   height: 100%;
   display: flex;
   flex-wrap: wrap;
-  overflow-x: scroll;
 }
 .inputsbox {
   width: 50%;
