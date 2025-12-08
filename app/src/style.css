@@ -76,6 +76,7 @@ img {
   margin: 5px auto;
   padding: 1%;
 }
+
 .Templates {
   width: 100%;
   height: 20%;
@@ -92,6 +93,7 @@ img {
   display: flex;
   flex-wrap: wrap;
 }
+
 .inputsbox {
   width: 50%;
   height: 100%;

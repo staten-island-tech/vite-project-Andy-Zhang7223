@@ -47,56 +47,12 @@ function inject(memes) {
     "afterbegin",
     `<div class="templateselect">
     <img class="img" src=${memes.img} alt="">
-    <input class="selectbtn" value="Select" type="button" size="100%">
+    <input class="selectbtn" value="Select" type="submit" size="100%">
     </div>`
   );
 }
 
 MemeTemplates.forEach((MemeTemplate) => inject(MemeTemplate));
-
-function injectinputs() {
-  const Inputsntemplates = document.querySelector(".inputsntemplates");
-  Inputsntemplates.insertAdjacentHTML(
-    "beforeend",
-    `<div class="inputsbox">
-    <input class="addinputs" value="Add a text" size="20" type="submit">
-    <input class="nopeinputs" value="Remove a text" size="20" type="submit">
-    <input
-    class="inputs"
-    type="text"
-    size="20">
-    <input class="Yourownimg" value="Add Your Own Meme Template Here!" type="file" accept="image/*">
-    </div>`
-  );
-}
-
-injectinputs();
-
-function addinginputs() {
-  let amountofinputs = 1;
-  const website = document.querySelector(".website");
-  const Addinputs = document.querySelector(".addinputs");
-  const Subinputs = document.querySelector(".nopeinputs");
-  const inputs = document.querySelector(".inputs");
-  website.addEventListener("submit", function (e) {
-    e.preventDefault();
-    if (amountofinputs != 3) {
-      injectinputs();
-    } else {
-      Addinputs.setAttribute("disabled", "");
-    }
-  });
-  Subinputs.document.querySelectorAll("submit", function (e) {
-    e.preventDefault();
-    if (amountofinputs != 1) {
-      inputs.remove();
-    } else {
-      Subinputs.setAttribute("disabled", "");
-    }
-  });
-}
-
-addinginputs();
 
 function selectTemplate() {
   const selectbutton = document.querySelectorAll(".selectbtn");
@@ -104,22 +60,16 @@ function selectTemplate() {
   selectbtnArray.forEach((selectbtn) =>
     selectbtn.addEventListener("submit", function (e) {
       e.preventDefault();
-      const img = e.target.closest(".img");
-      const currentimg = img.document.createElement("img");
+      const templateselectcard = e.target.closest(".templateselect");
+      const img = document.createElement("img");
+      img = templateselectcard.querySelector("img");
       let oldimg = document.querySelector(".memepreview img");
       if (oldimg) {
         oldimg.remove();
       }
-      memepreview.insertAdjacentHTML(
-        "afterbegin",
-        `<div class="previewimg">
-        <img src=${currentimg} alt="">
-        </div>`
-      );
+      memepreview.appendChild(img);
     })
   );
 }
 
 selectTemplate();
-
-//setupmodes(document.querySelector("#modesbtn"));
