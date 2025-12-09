@@ -55,21 +55,36 @@ function inject(memes) {
 MemeTemplates.forEach((MemeTemplate) => inject(MemeTemplate));
 
 function selectTemplate() {
-  const selectbutton = document.querySelectorAll(".selectbtn");
-  const selectbtnArray = Array.from(selectbutton);
-  selectbtnArray.forEach((selectbtn) =>
-    selectbtn.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const templateselectcard = e.target.closest(".templateselect");
-      const img = document.createElement("img");
-      img = templateselectcard.querySelector("img");
-      let oldimg = document.querySelector(".memepreview img");
-      if (oldimg) {
-        oldimg.remove();
-      }
-      memepreview.appendChild(img);
-    })
-  );
+  const website = document.querySelector(".website");
+  website.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const selectbutton = e.submitter;
+    const templateselectcard = selectbutton.closest(".templateselect");
+    const img = templateselectcard.querySelector("img");
+    const memepreview = document.querySelector(".memepreview");
+    let oldimg = document.querySelector(".memepreview img");
+    if (oldimg) {
+      oldimg.remove();
+    }
+    const clone = img.cloneNode("true");
+    memepreview.appendChild(clone);
+  });
 }
 
 selectTemplate();
+
+function FirstInputs() {
+  const inputsdiv = document.querySelector(".Templates");
+  inputsdiv.insertAdjacentHTML(
+    "afterbegin",
+    `<button class="Addinputs">Add inputs</button>
+    <button class="Nopeinputs">Remove inputs</button>
+    <input type="file" size="20" value="Choose file to use as template">
+    <div class="Actualinputs">
+      <input type="text" size="30">
+    </div>
+    `
+  );
+}
+
+FirstInputs();
