@@ -81,10 +81,26 @@ function FirstInputs() {
     <button class="Nopeinputs">Remove inputs</button>
     <input type="file" size="20" value="Choose file to use as template">
     <div class="Actualinputs">
-      <input type="text" size="30">
+      <input class="someinputs" type="text" size="30">
     </div>
     `
   );
+}
+
+function putinputonimg() {
+  const text = document.querySelector(".someinputs");
+  const memepreview = document.querySelector(".memepreview");
+  const imgcheck = document.querySelector(".img");
+  const actualinputs = document.querySelector(".Actualinputs");
+  if (imgcheck === null) {
+  } else {
+    actualinputs.forEach((input) =>
+      memepreview.insertAdjacentHTML(
+        "afterbegin",
+        `<p class="input">${text}</p>`
+      )
+    );
+  }
 }
 
 FirstInputs();
