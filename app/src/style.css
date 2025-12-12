@@ -44,8 +44,19 @@ body {
   width: 100%;
 }
 
+.memepreview {
+  width: 100%;
+  height: 100%;
+}
+
 img {
   width: 10%;
+  height: 10%;
+}
+
+.previewimg {
+  width: 50%;
+  height: 50%;
 }
 
 #currentimg {

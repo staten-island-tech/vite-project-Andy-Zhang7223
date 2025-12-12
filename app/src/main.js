@@ -66,7 +66,8 @@ function selectTemplate() {
     if (oldimg) {
       oldimg.remove();
     }
-    const clone = img.cloneNode("true");
+    const clone = img.cloneNode(false);
+    clone.classList.add("previewimg");
     memepreview.appendChild(clone);
   });
 }
@@ -82,6 +83,7 @@ function FirstInputs() {
     <input type="file" size="20" value="Choose file to use as template">
     <div class="Actualinputs">
       <input class="someinputs" type="text" size="30">
+      <button class="printinput">Put On Meme</button>
     </div>
     `
   );
@@ -91,10 +93,11 @@ function putinputonimg() {
   const text = document.querySelector(".someinputs");
   const memepreview = document.querySelector(".memepreview");
   const imgcheck = document.querySelector(".img");
-  const actualinputs = document.querySelector(".Actualinputs");
+  const inputsindiv = document.querySelectorAll(".someinputs");
+  const inputsindivArray = Array.from(inputsindiv);
   if (imgcheck === null) {
   } else {
-    actualinputs.forEach((input) =>
+    inputsindivArray.forEach((inputs) =>
       memepreview.insertAdjacentHTML(
         "afterbegin",
         `<p class="input">${text}</p>`
@@ -103,4 +106,15 @@ function putinputonimg() {
   }
 }
 
+function runningputinputsonimg() {
+  const btn = document.querySelectorAll(".printinput");
+  const btnarray = Array.from(btn);
+  btnarray.forEach((btn) =>
+    btn.addEventListener("click", function () {
+      putinputonimg();
+    })
+  );
+}
+
 FirstInputs();
+runningputinputsonimg();
