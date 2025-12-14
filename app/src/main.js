@@ -67,8 +67,19 @@ function selectTemplate() {
       oldimg.remove();
     }
     const clone = img.cloneNode(false);
+    clone.classList.remove("img")
     clone.classList.add("previewimg");
-    memepreview.appendChild(clone);
+    const oldpreviewimgdiv = document.querySelector(".previewimgdiv")
+    if (oldpreviewimgdiv) {
+      oldpreviewimgdiv.remove();
+    }
+    memepreview.insertAdjacentHTML(
+      "afterbegin",
+      `<div class="previewimgdiv">
+      </div>`
+    );
+    const previewimgdiv = document.querySelector(".previewimgdiv");
+    previewimgdiv.appendChild(clone)
   });
 }
 
@@ -83,37 +94,51 @@ function FirstInputs() {
     <input type="file" size="20" value="Choose file to use as template">
     <div class="Actualinputs">
       <input class="someinputs" type="text" size="30">
-      <button class="printinput">Put On Meme</button>
+      <input class="someinputs" type="text" size="30">
     </div>
+    <button class="printinput">Put On Meme</button>
     `
   );
 }
 
 function putinputonimg() {
-  const text = document.querySelector(".someinputs");
-  const memepreview = document.querySelector(".memepreview");
-  const imgcheck = document.querySelector(".img");
+  // const inputsread = document.querySelector(".someinputs");
+  // const text = inputsread.value
+  const previewimgdiv = document.querySelector(".previewimgdiv");
+  const imgcheck = document.querySelector(".previewimg");
   const inputsindiv = document.querySelectorAll(".someinputs");
   const inputsindivArray = Array.from(inputsindiv);
-  if (imgcheck === null) {
-  } else {
-    inputsindivArray.forEach((inputs) =>
-      memepreview.insertAdjacentHTML(
-        "afterbegin",
-        `<p class="input">${text}</p>`
+  if (imgcheck) {
+    inputsindivArray.forEach((inputs) =>{
+      const words = inputs.value
+      const oldwords = document.querySelector(".input")
+      if (oldwords){
+        oldwords.remove();
+      }
+      previewimgdiv.insertAdjacentHTML(
+        "beforeend",
+        `<p class="input">${words}</p>`
       )
+    }
     );
+  }
+  else {
+    alert("test");
   }
 }
 
 function runningputinputsonimg() {
-  const btn = document.querySelectorAll(".printinput");
-  const btnarray = Array.from(btn);
-  btnarray.forEach((btn) =>
+  const btn = document.querySelector(".printinput");
     btn.addEventListener("click", function () {
+      const oldtext = document.querySelectorAll(".input");
+      const oldtextArray = Array.from(oldtext);
+      oldtextArray.forEach((oldtext)=> function(){
+      if (oldtext){
+        oldtext.remove();
+      }
       putinputonimg();
     })
-  );
+    })
 }
 
 FirstInputs();

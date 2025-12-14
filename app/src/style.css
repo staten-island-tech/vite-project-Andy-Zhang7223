@@ -54,9 +54,15 @@ img {
   height: 10%;
 }
 
-.previewimg {
-  width: 50%;
+.previewimgdiv {
+  width:50%;
   height: 50%;
+  position: relative;
+}
+
+.previewimg {
+  width: 100%;
+  height: 100%;
 }
 
 #currentimg {
@@ -110,4 +116,17 @@ img {
   height: 100%;
   display: flex;
   flex-wrap: wrap;
+}
+
+.input {
+  text-align: justify;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px black;
 }
