@@ -1,6 +1,7 @@
 :root {
-  --white: white;
-  --black: black;
+  --color1: white;
+  --color2: black;
+  --btnclr: grey;
 
   --font-size: medium;
   --font-family: "fig-tree";
@@ -8,30 +9,51 @@
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
+    color: white;
+    background-color: black;
   }
   button {
-    background-color: #f9f9f9;
+    background-color: grey;
   }
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    color: #ffffff;
-    background-color: #213547;
-  }
-  a:hover {
-    color: #747bff;
+    color: black;
+    background-color: white;
   }
   button {
-    background-color: #213547;
+    background-color: grey;
   }
 }
 
+/* :root.light {
+  --color1: white;
+  --color2: black;
+  --btnclr: grey;
+
+  --font-size: medium;
+  --font-family: "fig-tree";
+}
+
+:root.dark {
+  --color1: black;
+  --color2: white;
+  --btnclr: grey;
+
+  --font-size: medium;
+  --font-family: "fig-tree";
+} */
+
+.lighttodarkswitch {
+  width: 1000px;
+  height: 100px;
+  font-size: medium;
+  font-family: var(--font-family);
+}
+
 body {
+  color: var(--color2);
+  background-color: var(--color1);
   margin: 0;
   display: flex;
   place-items: center;
@@ -40,7 +62,6 @@ body {
 }
 
 .Titles {
-  color: var(--color);
   width: 100%;
 }
 
@@ -71,20 +92,20 @@ img {
 
 #Title {
   width: 100%;
-  color: var(--color);
+  color: var(--color2);
   font-size: 100px;
   line-height: 1.1;
   text-align: center;
-  font: var(--font-family);
+  font-family: var(--font-family);
 }
 
 #Smoltitle {
   width: 100%;
-  color: var(--color);
+  color: var(--color2);
   font-size: 10px;
   line-height: 0.65;
   text-align: center;
-  font: var(--font-family);
+  font-family: var(--font-family);
 }
 
 .inputsntemplates {
@@ -129,4 +150,17 @@ img {
   font-weight: bold;
   text-transform: uppercase;
   text-shadow: 2px 2px 4px black;
+}
+
+.filters {
+  height: 20px;
+  width: 25%;
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+}
+
+.filterslabel {
+  color: var(--color2);
+  font-size: var(--font-size);
+  font-family: var(--font-family);
 }
