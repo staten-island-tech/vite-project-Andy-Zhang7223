@@ -7,42 +7,24 @@
   --font-family: "fig-tree";
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: white;
-    background-color: black;
-  }
-  button {
-    background-color: grey;
-  }
-}
 @media (prefers-color-scheme: dark) {
   :root {
-    color: black;
-    background-color: white;
+    color: var(--color1);
+    background-color: var(--color2);
   }
   button {
-    background-color: grey;
+    background-color: var(--btnclr);
   }
 }
-
-/* :root.light {
-  --color1: white;
-  --color2: black;
-  --btnclr: grey;
-
-  --font-size: medium;
-  --font-family: "fig-tree";
+@media (prefers-color-scheme: light) {
+  :root {
+    color: var(--color2);
+    background-color: var(--color1);
+  }
+  button {
+    background-color: var(--btnclr);
+  }
 }
-
-:root.dark {
-  --color1: black;
-  --color2: white;
-  --btnclr: grey;
-
-  --font-size: medium;
-  --font-family: "fig-tree";
-} */
 
 .lighttodarkswitch {
   width: 1000px;
@@ -76,7 +58,7 @@ img {
 }
 
 .previewimgdiv {
-  width:50%;
+  width: 50%;
   height: 50%;
   position: relative;
 }
@@ -139,14 +121,27 @@ img {
   flex-wrap: wrap;
 }
 
-.input {
+#input1 {
   text-align: justify;
   flex-wrap: wrap;
   position: absolute;
   top: 10px;
   left: 50%;
   color: white;
-  font-size: 32px;
+  font-size: 64px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px black;
+}
+
+#input2 {
+  text-align: justify;
+  flex-wrap: wrap;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  color: white;
+  font-size: 64px;
   font-weight: bold;
   text-transform: uppercase;
   text-shadow: 2px 2px 4px black;
