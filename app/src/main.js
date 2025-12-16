@@ -80,11 +80,12 @@ MemeTemplates.forEach((MemeTemplate) => inject(MemeTemplate));
 
 function selectTemplate() {
   const website = document.querySelector(".website");
+  const Imageupload = document.querySelector(".upload");
   website.addEventListener("submit", function (e) {
     e.preventDefault();
     const selectbutton = e.submitter;
     const templateselectcard = selectbutton.closest(".templateselect");
-    const img = templateselectcard.querySelector("img");
+    const img = templateselectcard.querySelector(".img");
     const memepreview = document.querySelector(".memepreview");
     let oldimg = document.querySelector(".memepreview img");
     if (oldimg) {
@@ -97,6 +98,7 @@ function selectTemplate() {
     if (oldpreviewimgdiv) {
       oldpreviewimgdiv.remove();
     }
+
     memepreview.insertAdjacentHTML(
       "afterbegin",
       `<div class="previewimgdiv">
@@ -105,17 +107,17 @@ function selectTemplate() {
     const previewimgdiv = document.querySelector(".previewimgdiv");
     previewimgdiv.appendChild(clone);
   });
-  const Imageupload = document.querySelector(".upload");
   Imageupload.addEventListener("change", function () {
+    const memepreview = document.querySelector(".memepreview")
     const file = this.files[0];
-    let oldimg = document.querySelector(".memepreview img");
-    if (oldimg) {
-      oldimg.remove();
+    const oldpreviewimgdiv = document.querySelector(".previewimgdiv");
+    if (oldpreviewimgdiv) {
+      oldpreviewimgdiv.remove();
     }
     memepreview.insertAdjacentHTML(
       "afterbegin",
       `<div class="previewimgdiv">
-      <img class="" src="" alt="">
+      <img class="previewimg" src="" alt="">
       </div>`
     );
     if (file) {
@@ -125,6 +127,7 @@ function selectTemplate() {
         previewimg.src = e.target.result;
       };
       reader.readAsDataURL(file);
+      Imageupload.value="";
     }
   });
 }
@@ -132,9 +135,9 @@ function selectTemplate() {
 selectTemplate();
 
 function FirstInputs() {
-  const inputsdiv = document.querySelector(".Templates");
+  const inputsdiv = document.querySelector(".inputs");
   inputsdiv.insertAdjacentHTML(
-    "afterbegin",
+    "beforeend",
     `<div class="Actualinputs">
       <input class="someinputs1" type="text" size="30">
       <input class="someinputs2" type="text" size="30">
@@ -153,7 +156,7 @@ function putinputonimg() {
     const words1 = inputsindiv1.value;
     const words2 = inputsindiv2.value;
     previewimgdiv.insertAdjacentHTML(
-      "afterbegin",
+      "beforeend",
       `<p class="input1" id="input">${words1}</p>
       <p class="input2" id="input">${words2}</p>`
     );
